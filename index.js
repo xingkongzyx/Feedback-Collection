@@ -1,50 +1,18 @@
 const express = require('express');
-const passport = require('passport');
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
-const keys = require('./config/keys.js');
+const keys = require("./config/keys")
+const mongoose = require("mongoose");
+
+mongoose.connect(keys.mongoURI, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+  });
+
+
+require('./services/passport');
 
 const app = express();
-
-// 告诉passport用specific service(google)去处理authentication
-// 内部有个identifier "google",后面用这个identifier确定使用这个strategy
-
-passport.use(
-	// 	new GoogleStrategy有两个参数,第一个是包含clientID以及密钥的object
-	// 	第二个则是个callback function
-	new GoogleStrategy(
-		{
-			// 	这里的第三个参数的意义是user在同意授权后被sent to的地址
-			clientID: keys.googleClientID,
-			clientSecret: keys.googleClientSecret,
-			callbackURL: '/auth/google/callback',
-		},
-		(accessToke, refreshToken,profile) => {
-			console.log("profile", profile);
-		}
-	)
-);
-
-// 第二个参数代表我们想让passport处理后续的authentication操作，
-// 并使用上面已经定义的Google strategy.这里使用了google identifier
-// 代表上面的strategy
-app.get(
-	'/auth/google',
-	passport.authenticate('google', {
-		// scope代表我们想要获取user的哪些信息
-		scope: ['email', 'profile'],
-	})
-);
-
-// route handler for exchange code to get actual user profile
-app.get("/auth/google/callback", passport.authenticate("google"))
-
-
-app.get('/', (req, res) => {
-	console.log("keys")
-	res.send({ words: 'hi there' });
-});
-
-
+require('./routes/authRoute')(app);
 
 const PORT = process.env.PORT || 5000;
 
