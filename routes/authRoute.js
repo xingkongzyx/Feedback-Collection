@@ -1,4 +1,4 @@
-const passport = require("passport")
+const passport = require('passport');
 
 module.exports = (app) => {
 	// 第二个参数代表我们想让passport处理后续的authentication操作，
@@ -15,8 +15,15 @@ module.exports = (app) => {
 	// route handler for exchange code to get actual user profile
 	app.get('/auth/google/callback', passport.authenticate('google'));
 
+	app.get('/currentUser', (req, res) => {
+		res.send(req.session);
+	});
+	
+	app.get('/logout', (req, res) => {
+		req.logout()
+		res.send("No user anymore", req.user);
+	});
 	app.get('/', (req, res) => {
-		console.log('keys');
-		res.send({ words: 'hi there' });
+		res.send('req.user');
 	});
 };
