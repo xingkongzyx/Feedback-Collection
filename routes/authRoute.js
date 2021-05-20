@@ -24,6 +24,6 @@ module.exports = (app) => {
 		res.send("No user anymore", req.user);
 	});
 	app.get('/', (req, res) => {
-		res.send('req.user');
+		res.send('Hello, first deploy!');
 	});
 };
