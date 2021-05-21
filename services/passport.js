@@ -34,10 +34,12 @@ passport.use(
 		(accessToke, refreshToken, profile, done) => {
 			User.findOne({ googleId: profile.id }).then((existingUser) => {
 				if (existingUser) {
-					// we already have a record with the given profile ID
+					console.log("存在用户")
+				// we already have a record with the given profile ID
 					done(null, existingUser);
 				} else {
-					// we don't have a user record with this ID, make a new record!
+					console.log("创建用户")
+				// we don't have a user record with this ID, make a new record!
 					new User({ googleId: profile.id })
 						.save()
 						.then((user) => done(null, user))

@@ -23,6 +23,7 @@ module.exports = (app) => {
 		req.logout()
 		res.send("No user anymore", req.user);
 	});
+	
 	app.get('/', (req, res) => {
 		res.send('Hello, first deploy!');
 	});
