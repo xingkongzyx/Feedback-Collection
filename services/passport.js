@@ -29,22 +29,21 @@ passport.use(
 			clientID: keys.googleClientID,
 			clientSecret: keys.googleClientSecret,
 			callbackURL: '/auth/google/callback',
-			proxy: true
+			proxy: true,
 		},
-		(accessToke, refreshToken, profile, done) => {
-			User.findOne({ googleId: profile.id }).then((existingUser) => {
-				if (existingUser) {
-					console.log("存在用户")
+		async (accessToke, refreshToken, profile, done) => {
+			const existingUser = await User.findOne({ googleId: profile.id });
+			if (existingUser) {
 				// we already have a record with the given profile ID
-					done(null, existingUser);
-				} else {
-					console.log("创建用户")
+				console.log('存在用户');
+				done(null, existingUser);
+			} else {
 				// we don't have a user record with this ID, make a new record!
-					new User({ googleId: profile.id })
-						.save()
-						.then((user) => done(null, user))
-				}
-			});
+
+				console.log('创建用户');
+				const user = new User({ googleId: profile.id }).save();
+				done(null, user);
+			}
 		}
 	)
 );
