@@ -19,6 +19,7 @@ module.exports = (app) => {
 		res.send(req.session);
 	});
 	
+// 	go to this route to log out the user 
 	app.get('/logout', (req, res) => {
 		req.logout()
 		res.send("No user anymore", req.user);
