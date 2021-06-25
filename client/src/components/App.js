@@ -13,7 +13,7 @@ const App = () => {
 	// 	reactRedirectURL只是用于dev阶段
 	const reactRedirectURL = 'https://emailyserver.run-us-west2.goorm.io/auth/google/';
 	return (
-		<div>
+		<div className="container">
 			<BrowserRouter>
 				<div>
 					<Header />

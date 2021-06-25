@@ -15,12 +15,12 @@ module.exports = (app) => {
 	// route handler for exchange code to get actual user profile
 	app.get('/auth/google/callback', passport.authenticate('google'));
 
-	app.get('/currentUser', (req, res) => {
-		res.send(req.session);
+	app.get('/api/currentUser', (req, res) => {
+		res.send(req.user);
 	});
 	
 // 	go to this route to log out the user 
-	app.get('/logout', (req, res) => {
+	app.get('/api/logout', (req, res) => {
 		req.logout()
 		res.send("No user anymore", req.user);
 	});
