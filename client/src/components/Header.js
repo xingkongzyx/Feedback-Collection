@@ -1,24 +1,18 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { fetchUser } from '../actions';
 
 class Header extends React.Component {
-	componentDidMount() {
-		this.props.fetchUser();
-	}
-
 	render() {
 		return (
 			<>
 				<nav>
 					<div className="nav-wrapper">
-						<a  href="www" className="brand-logo">
+						<a href="www" className="brand-logo">
 							<i className="material-icons">email</i>
 							Emaily
 						</a>
 						<ul id="nav-mobile" className="right">
 							<li>
-								<a href="www" >
+								<a href="www">
 									<i className="left material-icons">perm_identity</i>
 									Log In With Google
 								</a>
@@ -31,4 +25,4 @@ class Header extends React.Component {
 	}
 }
 
-export default connect(null, {fetchUser})(Header);
+export default Header;
