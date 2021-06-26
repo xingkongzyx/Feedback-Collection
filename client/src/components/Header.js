@@ -4,7 +4,6 @@ import { fetchUser } from '../actions';
 
 class Header extends React.Component {
 	componentDidMount() {
-		console.log(this.props);
 		this.props.fetchUser();
 	}
 
