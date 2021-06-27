@@ -6,7 +6,8 @@ module.exports = function (app) {
 			target: 'https://emailyserver.run-us-west2.goorm.io',
 			changeOrigin: true,
 			router: {
-				'https://emailyclient.run-us-west2.goorm.io': 'https://emailyserver.run-us-west2.goorm.io',
+				'https://emailyclient.run-us-west2.goorm.io/':
+					'https://emailyserver.run-us-west2.goorm.io/',
 			},
 		})
 	);

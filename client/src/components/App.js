@@ -10,15 +10,15 @@ const SurveyNew = () => <h2>SurveyNew</h2>;
 const Landing = () => <h2>Landing</h2>;
 
 class App extends React.Component {
-	// 	在prod阶段href = "/auth/google"
-	// 	reactRedirectURL只是用于dev阶段
-
+// 	在prod阶段href = "/auth/google"
+// 	reactRedirectURL只是用于dev阶段
+// const reactRedirectURL = 'https://emailyserver.run-us-west2.goorm.io/auth/google/';
 	componentDidMount() {
 		this.props.fetchUser();
 	}
-
+	
 	render() {
-		// const reactRedirectURL = 'https://emailyserver.run-us-west2.goorm.io/auth/google/';
+		
 		return (
 			<div className="container">
 				<BrowserRouter>
