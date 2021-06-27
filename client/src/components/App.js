@@ -31,6 +31,8 @@ class App extends React.Component {
 				</BrowserRouter>
 				<h1>
 					<a href="/auth/google">Click me</a>
+					<br />
+					<a href="/api/currentUser">Click me for profile</a>
 				</h1>
 			</div>
 		);
