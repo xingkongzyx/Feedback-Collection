@@ -3,12 +3,11 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Header from './Header';
-import {fetchUser} from '../actions';
+import { fetchUser } from '../actions';
 
 const Dashboard = () => <h2>Dashboard</h2>;
 const SurveyNew = () => <h2>SurveyNew</h2>;
 const Landing = () => <h2>Landing</h2>;
-
 
 class App extends React.Component {
 	// 	在prod阶段href = "/auth/google"
@@ -19,7 +18,7 @@ class App extends React.Component {
 	}
 
 	render() {
-		const reactRedirectURL = 'https://emailyserver.run-us-west2.goorm.io/auth/google/';
+		// const reactRedirectURL = 'https://emailyserver.run-us-west2.goorm.io/auth/google/';
 		return (
 			<div className="container">
 				<BrowserRouter>
@@ -31,11 +30,11 @@ class App extends React.Component {
 					</div>
 				</BrowserRouter>
 				<h1>
-					<a href={reactRedirectURL}>Click me</a>
+					<a href="/auth/google">Click me</a>
 				</h1>
 			</div>
 		);
 	}
 }
 
-export default connect(null, {fetchUser})(App);
+export default connect(null, { fetchUser })(App);
