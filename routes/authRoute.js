@@ -35,7 +35,7 @@ module.exports = (app) => {
 	// 	go to this route to log out the user
 	app.get('/api/logout', (req, res) => {
 		req.logout();
-		res.send('No user anymore');
+		res.redirect("https://emailyclient.run-us-west2.goorm.io/landing")
 	});
 
 	app.get('/', (req, res) => {

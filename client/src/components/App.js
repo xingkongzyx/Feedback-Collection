@@ -3,11 +3,11 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Header from './Header';
+import Landing from "./Landing"
 import { fetchUser } from '../actions';
 
 const Dashboard = () => <h2>Dashboard</h2>;
 const SurveyNew = () => <h2>SurveyNew</h2>;
-const Landing = () => <h2>Landing</h2>;
 
 class App extends React.Component {
 	// 	在prod阶段href = "/auth/google"
@@ -24,8 +24,9 @@ class App extends React.Component {
 					<div>
 						<Header />
 						<Route exact path="/" component={Landing} />
-						<Route exact path="/surveys" component={Dashboard} />
-						<Route path="/surveys/new" component={SurveyNew} />
+						<Route exact path="/dashboard" component={Dashboard} />
+						<Route exact path="/surveys" component={SurveyNew} />
+						<Route path="/landing" component={Landing} />
 					</div>
 				</BrowserRouter>
 				<h1>
