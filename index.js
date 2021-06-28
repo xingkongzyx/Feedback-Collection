@@ -3,7 +3,7 @@ const keys = require('./config/keys');
 const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
-
+const cors = require('cors');
 // 顺序很重要，先定义model class再使用它
 require('./models/User');
 require('./services/passport');
@@ -15,6 +15,12 @@ mongoose.connect(keys.mongoURI, {
 });
 
 const app = express();
+
+app.use(cors({
+		credentials: true,
+		origin: "https://emailyclient.run-us-west2.goorm.io"
+}))
+
 
 // instruct passport to make use of cookie to track authentication
 app.use(

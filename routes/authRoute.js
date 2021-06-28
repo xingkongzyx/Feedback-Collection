@@ -13,18 +13,31 @@ module.exports = (app) => {
 	);
 
 	// route handler for exchange code to get actual user profile
-	app.get('/auth/google/callback', passport.authenticate('google'));
+	app.get('/auth/google/callback', 
+			passport.authenticate('google'), 
+			(req,res)=>{
+				res.redirect("https://emailyclient.run-us-west2.goorm.io/surveys")
+	});
 
-	app.get('/api/currentUser', (req, res) => {
+	app.get('/api/current_user', (req, res) => {
+		
+// 		The response needs set Access-Control-Allow-Origin's value to the domain you want to make XHR request from. 
+		// res.header('Access-Control-Allow-Origin', 'https://emailyclient.run-us-west2.goorm.io');
+		// res.header('Access-Control-Allow-Credentials', true);
+		// res.header(
+		// 	'Access-Control-Allow-Headers',
+		// 	'Origin, X-Requested-With, Content-Type, Accept'
+		// );
+// 		send back the user
 		res.send(req.user);
 	});
-	
-// 	go to this route to log out the user 
+
+	// 	go to this route to log out the user
 	app.get('/api/logout', (req, res) => {
-		req.logout()
-		res.send("No user anymore", req.user);
+		req.logout();
+		res.send('No user anymore');
 	});
-	
+
 	app.get('/', (req, res) => {
 		res.send('Hello, first deploy!');
 	});

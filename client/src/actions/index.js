@@ -1,17 +1,19 @@
 import axios from 'axios';
 import { FETCH_USER } from './types';
 
-
 // Action creator to fetch user from our backend server
 export const fetchUser = () => {
 	return async (dispatch) => {
-// 		因为使用了proxy forward所以只填写了relative path
-		const response = await axios.get('/api/currentUser');
-		console.log(response)
+		const response = await axios.get(
+			'https://emailyserver.run-us-west2.goorm.io/api/current_user',
+			{
+// 				axios默认是发送请求的时候不会带上cookie的，需要通过设置withCredentials: true来解决
+				withCredentials: true,
+			}
+		);
 		dispatch({
 			type: FETCH_USER,
-			payload: response,
+			payload: response.data,
 		});
 	};
 };
-
