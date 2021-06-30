@@ -16,6 +16,7 @@ module.exports = (app) => {
 	app.get('/auth/google/callback', 
 			passport.authenticate('google'), 
 			(req,res)=>{
+// 		由于proxy的原因使用full url,否则应该是"/surveys"
 				res.redirect("https://emailyclient.run-us-west2.goorm.io/surveys")
 	});
 

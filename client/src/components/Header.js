@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {Link} from "react-router-dom"
+import { Link } from 'react-router-dom';
 
 class Header extends React.Component {
 	renderContent() {
@@ -10,7 +10,10 @@ class Header extends React.Component {
 			case false:
 				return (
 					<a href={loginURL}>
-						<i className="left small material-icons">group_add</i>Login With G+
+						<i className="left small material-icons">
+							group_add
+						</i>
+						Login With G+
 					</a>
 				);
 			case null:
@@ -18,19 +21,22 @@ class Header extends React.Component {
 			default:
 				return (
 					<a href={logoutURL}>
-						<i className="left small material-icons">group</i>Log Out
+						<i className="left small material-icons">
+							group
+						</i>
+						Log Out
 					</a>
 				);
 		}
 	}
 
-	renderLogoLink(){
-		if(this.props.auth){
-			return "/dashboard"
+	renderLogoLink() {
+		if (this.props.auth) {
+			return '/dashboard';
 		}
-		return "/"
+		return '/';
 	}
-	
+
 	render() {
 		console.log(this.props);
 		return (
