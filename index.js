@@ -1,12 +1,14 @@
 const express = require('express');
 const keys = require('./config/keys');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 const cors = require('cors');
 // 顺序很重要，先定义model class再使用它
 require('./models/User');
 require('./services/passport');
+
 
 mongoose.connect(keys.mongoURI, {
 	useNewUrlParser: true,
@@ -15,6 +17,10 @@ mongoose.connect(keys.mongoURI, {
 });
 
 const app = express();
+
+// 使用bodyParser middleware
+app.use(bodyParser.json())
+
 
 app.use(cors({
 		credentials: true,
@@ -33,6 +39,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 require('./routes/authRoute')(app);
+require('./routes/billingRoutes')(app);
 
 const PORT = process.env.PORT || 5000;
 
