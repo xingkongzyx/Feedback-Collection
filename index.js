@@ -18,14 +18,17 @@ mongoose.connect(keys.mongoURI, {
 
 const app = express();
 
-// 使用bodyParser middleware
-app.use(bodyParser.json())
-
-
+// 避免CORS error
 app.use(cors({
 		credentials: true,
 		origin: "https://emailyclient.run-us-west2.goorm.io"
 }))
+
+
+// 使用bodyParser middleware
+app.use(bodyParser.json())
+
+
 
 
 // instruct passport to make use of cookie to track authentication
@@ -39,7 +42,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 require('./routes/authRoute')(app);
-require('./routes/billingRoutes')(app);
+require('./routes/billingRoute')(app);
 
 const PORT = process.env.PORT || 5000;
 
