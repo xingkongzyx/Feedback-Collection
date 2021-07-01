@@ -36,12 +36,12 @@ passport.use(
 			const existingUser = await User.findOne({ googleId: profile.id });
 			if (existingUser) {
 				// we already have a record with the given profile ID
-				console.log('存在用户');
+				console.log('user exist');
 				done(null, existingUser);
 			} else {
 				// we don't have a user record with this ID, make a new record!
 
-				console.log('创建用户');
+				console.log('create user');
 				const user = new User({ googleId: profile.id }).save();
 				done(null, user);
 			}

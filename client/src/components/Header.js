@@ -24,6 +24,11 @@ class Header extends React.Component {
 							<Payments />
 						</li>
 						<li>
+							<a className="btn" style={{backgroundColor: "#2ecc71", color: "#fff"}}>
+								Credits: {this.props.auth.credits}
+							</a>
+						</li>
+						<li>
 							<a href={logoutURL}>
 								<i className="left small material-icons">group</i>
 								Log Out
@@ -42,11 +47,11 @@ class Header extends React.Component {
 	}
 
 	render() {
-		// console.log(this.props);
+		// console.clear();
 		return (
 			<>
 				<nav>
-					<div className="nav-wrapper blue lighten-1">
+					<div className="nav-wrapper blue lighten-1" >
 						<Link to={this.renderLogoLink()} className="brand-logo">
 							<i className="material-icons">email</i>
 							Emaily
