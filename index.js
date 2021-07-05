@@ -8,6 +8,9 @@ const cors = require('cors');
 const keys = require('./config/keys');
 // 顺序很重要，先定义model class再使用它
 require('./models/User');
+require('./models/Survey');
+
+1
 require('./services/passport');
 
 
