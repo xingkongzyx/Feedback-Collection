@@ -25,9 +25,13 @@ class Header extends React.Component {
 							<Payments />
 						</li>
 						<li>
-							<button className="btn" 
-								
-								style={{marginLeft: "1rem", backgroundColor: "#4CAF50", color: "#fff", cursor: "default", border: "none"}}>
+							<button className="btn" 	
+								style=
+								{{marginLeft: "1rem", 
+								backgroundColor: "#4CAF50", 
+								color: "#fff", 
+								cursor: "default", border: "none"}}
+							>
 								Credits: {this.props.auth.credits}
 							</button>
 						</li>
