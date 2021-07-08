@@ -8,10 +8,10 @@ module.exports = (survey) => {
 			<p>Please answer the following question:</p>
 			<p>${survey.body}</p>
 			<div>
-				<a href="https://emailyclient.run-us-west2.goorm.io/api/surveys/thanks">Yes</a>
+				<a href="https://emailyserver.run-us-west2.goorm.io/api/surveys/thanks">Yes</a>
 			</div>
 			<div>
-				<a href="https://emailyclient.run-us-west2.goorm.io/api/surveys/thanks">No</a>
+				<a href="https://emailyserver.run-us-west2.goorm.io/api/surveys/thanks">No</a>
 			</div>
 		</div>
 	</body>

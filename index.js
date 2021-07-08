@@ -10,7 +10,6 @@ const keys = require('./config/keys');
 require('./models/User');
 require('./models/Survey');
 
-1
 require('./services/passport');
 
 

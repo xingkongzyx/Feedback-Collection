@@ -6,7 +6,7 @@ const surveySchema = new Schema({
 	title: String,
 	body: String,
 	subject: String,
-	receipents: [recipientSchema],
+	recipients: [recipientSchema],
 	yes: { type: Number, default: 0 },
 	no: { type: Number, default: 0 },
 	// 	set up relationship between user model

@@ -65,7 +65,7 @@ class Header extends React.Component {
 						<Link to={this.renderLogoLink()} className="brand-logo">
 							Emaily
 						</Link>
-						<ul id="nav-mobile" className="right">
+						<ul id="nav-mobile" className="right hide-on-med-and-down">
 							{this.renderContent()}
 						</ul>
 					</div>

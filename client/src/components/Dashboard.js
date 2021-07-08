@@ -1,13 +1,12 @@
 import React from 'react';
-import SurveyNew from './SurveyNew';
 import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
 	return (
-		<div>
-			<div class="fixed-action-btn">
-				<Link class="btn-floating btn-large blue" to="/surveys">
-					<i class="large material-icons">add</i>
+		<div className="container">
+			<div className="fixed-action-btn">
+				<Link className="btn-floating btn-large blue" to="/surveys">
+					<i className="large material-icons">add</i>
 				</Link>
 			</div>
 		</div>
