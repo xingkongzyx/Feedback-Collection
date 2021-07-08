@@ -12,7 +12,12 @@ class Payments extends React.Component {
 				amount={500}
 				token={(token) => this.props.handleToken(token)}
 				stripeKey={process.env.REACT_APP_STRIPE_KEY}
-			></StripeCheckout>
+			>
+				<a href="#">
+					<i className="left small material-icons">credit_card</i>
+					Pay With Card
+				</a>
+			</StripeCheckout>
 		);
 	}
 }

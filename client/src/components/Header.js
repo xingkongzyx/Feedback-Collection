@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Payments from './Payments';
-import "../style.css"
 
 class Header extends React.Component {
 	renderContent() {
@@ -25,12 +24,16 @@ class Header extends React.Component {
 							<Payments />
 						</li>
 						<li>
-							<button className="btn" 	
-								style=
-								{{marginLeft: "1rem", 
-								backgroundColor: "#4CAF50", 
-								color: "#fff", 
-								cursor: "default", border: "none"}}
+							<button
+								className="btn"
+								style={{
+									margin: '0 1rem',
+									backgroundColor: 'rgb(104 112 104)',
+									color: '#fff',
+									cursor: 'default',
+									border: 'none',
+									borderRadius: '30%',
+								}}
 							>
 								Credits: {this.props.auth.credits}
 							</button>
@@ -58,9 +61,8 @@ class Header extends React.Component {
 		return (
 			<>
 				<nav>
-					<div className="nav-wrapper blue lighten-1" >
+					<div className="nav-wrapper blue lighten-1">
 						<Link to={this.renderLogoLink()} className="brand-logo">
-							<i className="material-icons">email</i>
 							Emaily
 						</Link>
 						<ul id="nav-mobile" className="right">

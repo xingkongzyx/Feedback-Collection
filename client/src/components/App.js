@@ -3,12 +3,12 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Header from './Header';
+import Dashboard from "./Dashboard"
 import Landing from "./Landing"
 import { fetchUser } from '../actions';
 
-const Dashboard = () => <h2>Dashboard</h2>;
 const SurveyNew = () => <h2>SurveyNew</h2>;
-
+// import "../style.css"
 class App extends React.Component {
 	// 	在prod阶段href = "/auth/google"
 	// 	reactRedirectURL只是用于dev阶段
@@ -19,7 +19,7 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div className="container">
+			<div>
 				<BrowserRouter>
 					<div>
 						<Header />

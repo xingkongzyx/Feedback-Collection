@@ -1,0 +1,16 @@
+body {
+	background-color: #f7fffa;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 200 200'%3E%3Cpolygon fill='%23e1f7fa' fill-opacity='0.59' points='100 0 0 100 100 100 100 200 200 100 200 0'/%3E%3C/svg%3E");
+	padding: 0;
+	margin: 0;
+	/* width: 100vw; */
+}
+
+.nav-wrapper {
+	padding: 0 2rem;
+}
+
+.brand-logo{
+	font-style: italic;
+	font-weight: bold;
+}
