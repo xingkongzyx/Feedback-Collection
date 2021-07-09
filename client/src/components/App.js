@@ -3,12 +3,12 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Header from './Header';
-import Dashboard from "./Dashboard"
-import Landing from "./Landing"
+import Dashboard from './Dashboard';
+import SurveyNew from './surveys/SurveyNew';
+import Landing from './Landing';
 import { fetchUser } from '../actions';
 
-const SurveyNew = () => <h2>SurveyNew</h2>;
-// import "../style.css"
+import "./style.css"
 class App extends React.Component {
 	// 	在prod阶段href = "/auth/google"
 	// 	reactRedirectURL只是用于dev阶段
@@ -24,13 +24,16 @@ class App extends React.Component {
 					<div>
 						<Header />
 						<Route exact path="/" component={Landing} />
-						<Route exact path="/dashboard" component={Dashboard} />
-						<Route exact path="/surveys" component={SurveyNew} />
+						<Route exact path="/surveys" component={Dashboard} />
+						<Route exact path="/surveys/new" component={SurveyNew} />
 						<Route path="/landing" component={Landing} />
 					</div>
 				</BrowserRouter>
 				<h1>
-					<a className="waves-effect waves-light btn" href="https://emailyserver.run-us-west2.goorm.io/api/current_user">
+					<a
+						className="waves-effect waves-light btn"
+						href="https://emailyserver.run-us-west2.goorm.io/api/current_user"
+					>
 						Check status
 					</a>
 				</h1>

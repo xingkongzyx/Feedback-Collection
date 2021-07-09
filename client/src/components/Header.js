@@ -28,11 +28,13 @@ class Header extends React.Component {
 								className="btn"
 								style={{
 									margin: '0 1rem',
-									backgroundColor: 'rgb(104 112 104)',
+									backgroundColor: 'rgb(108 128 132)',
 									color: '#fff',
 									cursor: 'default',
 									border: 'none',
-									borderRadius: '30%',
+									borderRadius: '40%',
+									fontStyle: "oblique",
+									fontWeight: "700",
 								}}
 							>
 								Credits: {this.props.auth.credits}
@@ -51,7 +53,7 @@ class Header extends React.Component {
 
 	renderLogoLink() {
 		if (this.props.auth) {
-			return '/dashboard';
+			return '/surveys';
 		}
 		return '/';
 	}

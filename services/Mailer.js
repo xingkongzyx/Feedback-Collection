@@ -3,7 +3,7 @@ const sgMail = require('@sendgrid/mail');
 const keys = require('../config/keys');
 const chalk = require('chalk');
 class Mailer {
-/*****		sendgrid要求的setup code      *****/
+	/*****		sendgrid要求的setup code      *****/
 	constructor({ subject, recipients }, content) {
 		sgMail.setApiKey(keys.sendGridKey);
 		this.msg = {
