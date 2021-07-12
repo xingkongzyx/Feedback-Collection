@@ -6,7 +6,7 @@ import validateEmail from '../../utils/validateEmail';
 
 class SurveyForm extends React.Component {
 	onFormSubmit = (formValues) => {
-		// console.log(formValues);
+		this.props.onSurveyNext();
 	};
 
 	renderFields = () => {
@@ -45,6 +45,7 @@ class SurveyForm extends React.Component {
 					{this.renderFields()}
 					<Link to="/surveys" className="red btn waves-effect waves-light">
 						Cancel
+						<i className="material-icons right">cancel</i>
 					</Link>
 
 					<button className="teal btn waves-effect waves-light right" type="submit">
@@ -57,12 +58,12 @@ class SurveyForm extends React.Component {
 	}
 }
 
+// 在user submit the form时验证各个field的输入是否满足要求
 const validate = (values) => {
 	const errors = {};
-	
+
 	errors.emails = validateEmail(values.emails || '');
 	if (!values.title) {
-		// 	如果title为空
 		errors.title = 'Please provide the title';
 	}
 	if (!values.subject) {
@@ -74,8 +75,12 @@ const validate = (values) => {
 	if (!values.emails) {
 		errors.emails = 'Please provide email list';
 	}
-		
+
 	return errors;
 };
 
-export default reduxForm({ validate: validate, form: 'CreateSurvey' })(SurveyForm);
+export default reduxForm({ validate: validate, 
+						  form: 'SurveyForm', 
+						  destroyOnUnmount: false })(
+	SurveyForm
+);

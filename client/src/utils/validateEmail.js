@@ -9,7 +9,6 @@ const validateEmail = (emailStr) => {
 		.map((email) => email.trim())
 		.filter((email) => emailReg.test(email) === false);
 
-	console.log(invalidEmailArr)
 	let errorStr = null;
 	
 	if (invalidEmailArr.length) {
