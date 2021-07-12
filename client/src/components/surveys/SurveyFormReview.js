@@ -13,8 +13,8 @@ class SurveyFormReview extends React.Component {
 
 		return FIELDS.map((field) => {
 			return (
-				<div className="col s12">
-					<div className="card teal darken-2">
+				<div className="col s6" keys={field[0]}>
+					<div className="card blue-grey darken-1">
 						<div className="card-content white-text">
 							<span className="card-title h3">{field[0]}</span>
 							<p>{field[1]}</p>
@@ -28,9 +28,12 @@ class SurveyFormReview extends React.Component {
 	render() {
 		return (
 			<div>
-				<div className="row" style={{marginTop: "5vh"}}>{this.renderContent()}</div>
+				<div className="row" style={{ marginTop: '5vh' }}>
+					<h5 className="center-align">Please Confirm Your Entries</h5>
+					{this.renderContent()}
+				</div>
 				<button
-					className="yellow btn waves-effect waves-light"
+					className="yellow darken-3 btn waves-effect waves-light"
 					onClick={this.props.onSurveyBack}
 				>
 					Back

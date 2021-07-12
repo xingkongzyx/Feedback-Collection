@@ -45,3 +45,9 @@ input.surveyFormInput:focus {
 p.reviewText{
 	word-wrap: break-word;
 }
+
+span.card-title{
+	font-weight: 700;
+    font-style: italic;
+    font-family: ui-sans-serif;
+}
