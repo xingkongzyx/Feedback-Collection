@@ -5,15 +5,15 @@ import SurveyField from './SurveyField';
 import validateEmail from '../../utils/validateEmail';
 
 class SurveyForm extends React.Component {
-	onFormSubmit = (formValues) => {
-		this.props.onSurveyNext();
-	};
 
 	renderFields = () => {
 		return (
 			<>
 				<div className="row">
-					<Field component={SurveyField} name="title" label="Survey Title" type="text" />
+					<Field component={SurveyField}
+						name="title"
+						label="Survey Title"
+						type="text" />
 				</div>
 				<div className="row">
 					<Field
@@ -24,7 +24,10 @@ class SurveyForm extends React.Component {
 					/>
 				</div>
 				<div className="row">
-					<Field component={SurveyField} name="body" label="Email Body" type="text" />
+					<Field component={SurveyField}
+						name="body"
+						label="Email Body"
+						type="text" />
 				</div>
 				<div className="row">
 					<Field
@@ -41,16 +44,24 @@ class SurveyForm extends React.Component {
 	render() {
 		return (
 			<div>
-				<form className="surveyForm" onSubmit={this.props.handleSubmit(this.onFormSubmit)}>
+				<form className="surveyForm"
+					onSubmit={this.props.handleSubmit(this.props.onSurveyNext)} >
+					
 					{this.renderFields()}
-					<Link to="/surveys" className="red btn waves-effect waves-light">
+					
+					<Link to="/surveys"
+						className="red btn waves-effect waves-light">
 						Cancel
-						<i className="material-icons right">cancel</i>
+						<i
+							className="material-icons right">cancel</i>
 					</Link>
 
-					<button className="teal btn waves-effect waves-light right" type="submit">
+					<button
+						className="teal btn waves-effect waves-light right"
+						type="submit">
 						Next
-						<i className="material-icons right">done</i>
+						<i
+							className="material-icons right">done</i>
 					</button>
 				</form>
 			</div>
@@ -79,8 +90,10 @@ const validate = (values) => {
 	return errors;
 };
 
-export default reduxForm({ validate: validate, 
-						  form: 'SurveyForm', 
-						  destroyOnUnmount: false })(
+export default reduxForm({
+	validate: validate,
+	form: 'surveyForm',
+	destroyOnUnmount: false
+})(
 	SurveyForm
 );

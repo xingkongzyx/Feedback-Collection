@@ -41,3 +41,7 @@ input.surveyFormInput{
 input.surveyFormInput:focus {
   background-color: lightblue;
 }
+
+p.reviewText{
+	word-wrap: break-word;
+}
