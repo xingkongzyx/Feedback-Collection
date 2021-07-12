@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_USER } from './types';
+import { FETCH_USER, SUBMIT_SURVEY } from './types';
 
 // Action creator to fetch user from our backend server
 export const fetchUser = () => {
@@ -34,3 +34,10 @@ export const handleToken = (token) => {
 		})
 	};
 };
+
+export const submitSurvey = (formValues)=>{
+	console.log("action creator sendSurvey")
+	return {
+		type: SUBMIT_SURVEY
+	}
+}
