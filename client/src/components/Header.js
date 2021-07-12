@@ -25,7 +25,7 @@ class Header extends React.Component {
 						</li>
 						<li>
 							<button
-								className="btn"
+								className="btn credits"
 								style={{
 									margin: '0 1rem',
 									backgroundColor: 'rgb(108 128 132)',

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_USER, SUBMIT_SURVEY } from './types';
+import { FETCH_USER } from './types';
 
 // Action creator to fetch user from our backend server
 export const fetchUser = () => {
@@ -18,7 +18,7 @@ export const fetchUser = () => {
 	};
 };
 
-// send the token to back end server and then get updated 
+// send the token to back end server and then get updated
 // user model back. finally dispatch the user model to the reducer
 export const handleToken = (token) => {
 	return async (dispatch) => {
@@ -27,17 +27,30 @@ export const handleToken = (token) => {
 			token,
 			{ withCredentials: true }
 		);
-		
+
 		dispatch({
 			type: FETCH_USER,
-			payload: response.data
-		})
+			payload: response.data,
+		});
 	};
 };
 
-export const submitSurvey = (formValues)=>{
-	console.log("action creator sendSurvey")
-	return {
-		type: SUBMIT_SURVEY
-	}
-}
+// send post request with the form values filled in by user
+// on client side to the server side 
+// and then kick user back to the dashboard
+export const submitSurvey = (formValues) => {
+	return async (dispatch) => {
+		const response = axios.post(
+			'https://emailyserver.run-us-west2.goorm.io/api/surveys',
+			formValues,
+			{ withCredentials: true }
+		);
+		// 	backend 返回的是res.send(user) user是更新完credits后的user
+		// 	直接发送到reducer中从而更新header
+		dispatch({
+			type: FETCH_USER,
+			payload: response.data,
+		});
+	};
+
+};
