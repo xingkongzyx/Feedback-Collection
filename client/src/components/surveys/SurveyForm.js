@@ -60,6 +60,7 @@ class SurveyForm extends React.Component {
 
 // 在user submit the form时验证各个field的输入是否满足要求
 const validate = (values) => {
+	console.log("valiedate runs")
 	const errors = {};
 
 	errors.recipients = validateEmail(values.recipients || '');
@@ -84,3 +85,4 @@ export default reduxForm({
 	form: 'surveyForm',
 	destroyOnUnmount: false,
 })(SurveyForm);
+

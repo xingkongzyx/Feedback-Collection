@@ -14,7 +14,7 @@ module.exports = (app) => {
 
 	// 	route to create the survey and send it to recipients
 	// 	through SendGrid
-	app.post('/api/surveys', async (req, res) => {
+	app.post('/api/surveys', requireLogin, requireCredits, async (req, res) => {
 		const { title, subject, body, recipients } = req.body;
 		// create the new survey based on survey schema
 		const survey = new Survey({

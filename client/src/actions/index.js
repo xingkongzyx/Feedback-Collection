@@ -35,16 +35,18 @@ export const handleToken = (token) => {
 	};
 };
 
-// send post request with the form values filled in by user
+// send post request with form values filled by user
 // on client side to the server side 
 // and then kick user back to the dashboard
 export const submitSurvey = (formValues) => {
 	return async (dispatch) => {
-		const response = axios.post(
+		const response = await axios.post(
 			'https://emailyserver.run-us-west2.goorm.io/api/surveys',
 			formValues,
 			{ withCredentials: true }
 		);
+		
+		console.log(response.data)
 		// 	backend 返回的是res.send(user) user是更新完credits后的user
 		// 	直接发送到reducer中从而更新header
 		dispatch({
