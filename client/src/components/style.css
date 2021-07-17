@@ -56,9 +56,35 @@ p.reviewText {
 	margin-top: 5vh;
 }
 
-.surveylist {
+div#surveylist {
 	display: flex;
-	flex-wrap: wrap;
 	justify-content: center;
-	align-items: center;
+}
+
+div.survey-card{
+	margin: 0;
+	padding: 0;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.survey-card .card-action{
+	display: flex;
+	justify-content: space-around;
+	font-weight: bolder;
+}
+
+.survey-card .card-footer{
+	border-radius: 0 0 calc(.25rem - 1px) calc(.25rem - 1px);
+	background-color: rgba(10,9,10,.08);
+    border-top: 3px solid rgba(0,0,0,.125);
+}
+
+.card-reveal{
+	padding: 0;
+}
+
+.card-reveal .card-title{
+	padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    border-bottom: 2px solid rgba(0,0,0,.125);
 }

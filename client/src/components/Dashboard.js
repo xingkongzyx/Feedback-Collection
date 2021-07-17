@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getSurveys, deleteSurvey } from "../actions";
-import card from "./card.jpg";
+import cardone from "./cardone.png";
+import cardtwo from "./cardtwo.png";
 
 class Dashboard extends React.Component {
     componentDidMount() {
@@ -10,6 +11,7 @@ class Dashboard extends React.Component {
     }
 
     renderSurveys = () => {
+		let counter = 1;
         if (this.props.surveys.length === 0)
             return (
                 <h3 className="center">
@@ -17,10 +19,12 @@ class Dashboard extends React.Component {
                 </h3>
             );
         return this.props.surveys.map((survey) => {
+			counter ++;
             return (
-                <div className="card" key={survey._id} style={{ width: "50%" }}>
+				<div className="row" id="surveylist">
+                <div className="card survey-card col s6" key={survey._id} style={{margin: "0", padding: "0"}}>
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src={card} />
+                        <img class="activator" src={counter % 2 === 0 ? cardtwo: cardone} alt="card image"/>
                     </div>
                     <div className="card-content">
                         <span className="card-title activator grey-text text-darken-4">
@@ -33,7 +37,7 @@ class Dashboard extends React.Component {
                             {new Date(survey.dateSent).toLocaleDateString()}
                         </p>
                     </div>
-                    <div className="card-action">
+                    <div className="card-action card-footer">
                         <a class="btn-flat" disabled>
                             Yes: {survey.yes}
                         </a>
@@ -49,22 +53,23 @@ class Dashboard extends React.Component {
                             Delete Survey
                         </button>
                     </div>
-                    <div className="card-reveal">
-                        <span className="card-title grey-text text-darken-4">
-                            SUBJECT: {survey.subject}
+                    <div className="card-reveal" style={{padding: "0"}}>
+                        <span className="card-title white-text blue-grey darken-3 center">
+                            {survey.subject}
                             <i className="material-icons right">close</i>
                         </span>
-                        <p>BODY: {survey.body}</p>
+                        <p className="card-title white-text blue-grey"> {survey.body}</p>
                     </div>
                 </div>
+				</div>
             );
         });
     };
 
     render() {
         return (
-            <div className="container">
-                <div className="surveylist">{this.renderSurveys()}</div>
+            <div className="container" >
+                {this.renderSurveys()}
                 <div className="fixed-action-btn">
                     <Link
                         className="btn-floating btn-large blue"
