@@ -1,9 +1,11 @@
-import { FETCH_SURVEYS } from '../actions/types';
+import { FETCH_SURVEYS, DELETE_SURVEY } from '../actions/types';
 
 const surveyReducer = (state = [], action) => {
 	switch (action.type) {
 		case FETCH_SURVEYS:
 			return action.payload;
+		case DELETE_SURVEY:
+			return state.filter(element => element._id !== action.payload)
 		default:
 			return state;
 	}

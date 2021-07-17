@@ -18,36 +18,47 @@ body {
 	overflow: hidden; */
 }
 
-.brand-logo{
+.brand-logo {
 	font-style: italic;
 	font-weight: bold;
 }
 
-.surveyForm{
-	margin-top: 5vh
+.surveyForm {
+	margin-top: 5vh;
 }
 
-label.labelText{
+label.labelText {
 	font-size: 1.7rem;
 	font-weight: bold;
 	/* color: #050b17; */
 }
 
-input.surveyFormInput{
+input.surveyFormInput {
 	margin-bottom: 5px;
-    margin-top: 20px;
+	margin-top: 20px;
 }
 
 input.surveyFormInput:focus {
-  background-color: lightblue;
+	background-color: lightblue;
 }
 
-p.reviewText{
+p.reviewText {
 	word-wrap: break-word;
 }
 
-span.card-title{
+#review-card-title {
 	font-weight: 700;
-    font-style: italic;
-    font-family: ui-sans-serif;
+	font-style: italic;
+	font-family: ui-sans-serif;
+}
+
+.container {
+	margin-top: 5vh;
+}
+
+.surveylist {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
 }

@@ -29,14 +29,6 @@ class App extends React.Component {
 						<Route path="/landing" component={Landing} />
 					</div>
 				</BrowserRouter>
-				<h1>
-					<a
-						className="waves-effect waves-light btn"
-						href="https://emailyserver.run-us-west2.goorm.io/api/current_user"
-					>
-						Check status
-					</a>
-				</h1>
 			</div>
 		);
 	}

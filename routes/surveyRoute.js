@@ -127,4 +127,12 @@ module.exports = (app) => {
 
         res.send({});
     });
+	
+	// Route to delete survey from the database
+	app.delete("/api/surveys/delete/:surveyId", requireLogin, async(req, res) => {
+		await Survey.findByIdAndDelete(req.params.surveyId);
+		console.log(chalk.red("Deleted survey!!!"))
+		res.send({});
+	})
+	
 };
