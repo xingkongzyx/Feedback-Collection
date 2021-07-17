@@ -9,13 +9,20 @@ class Dashboard extends React.Component {
 	}
 
 	renderSurveys = () => {
-		console.log('surveys', this.props.surveys);
 		return this.props.surveys.map((survey) => {
 			return (
-				<div key={survey._id}>
-					<h3>{survey.title}</h3>
-					<h5>{survey.body}</h5>
-					<h5>{survey.dateSent}</h5>
+				<div className="card darken-1" key={survey._id}>
+					<div className="card-content">
+						<span className="card-title">{survey.title}</span>
+						<p>{survey.body}</p>
+						<p className="right">
+							Sent On: {new Date(survey.dateSent).toLocaleDateString()}
+						</p>
+					</div>
+					<div className="card-action">
+						<a>Yes: {survey.yes}</a>
+						<a>No: {survey.no}</a>
+					</div>
 				</div>
 			);
 		});
@@ -24,7 +31,7 @@ class Dashboard extends React.Component {
 	render() {
 		return (
 			<div className="container">
-				<div>{this.renderSurveys()}</div>
+				{this.renderSurveys()}
 				<div className="fixed-action-btn">
 					<Link className="btn-floating btn-large blue" to="/surveys/new">
 						<i className="large material-icons">add</i>
