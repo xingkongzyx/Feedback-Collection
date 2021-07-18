@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getSurveys, deleteSurvey } from "../actions";
-import cardone from "./cardone.png";
-import cardtwo from "./cardtwo.png";
+import cardone from "./images/cardone.png";
+import cardtwo from "./images/cardtwo.png";
 
 class Dashboard extends React.Component {
     componentDidMount() {
@@ -21,13 +21,13 @@ class Dashboard extends React.Component {
         return this.props.surveys.map((survey) => {
 			counter ++;
             return (
-				<div className="row" id="surveylist">
-                <div className="card survey-card col s6" key={survey._id} style={{margin: "0", padding: "0"}}>
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src={counter % 2 === 0 ? cardtwo: cardone} alt="card image"/>
+				<div className="row" id="surveylist" key={survey._id} >
+                <div className="card survey-card col s8" style={{margin: "0", padding: "0"}}>
+                    <div className="card-image waves-effect waves-block waves-light">
+                        <img className="activator" src={counter % 2 === 0 ? cardtwo: cardone} alt="card image"/>
                     </div>
                     <div className="card-content">
-                        <span className="card-title activator grey-text text-darken-4">
+                        <span className="survey-title card-title activator grey-text text-darken-4">
                             {survey.title}
                             <i className="material-icons right">more_vert</i>
                         </span>
@@ -38,10 +38,10 @@ class Dashboard extends React.Component {
                         </p>
                     </div>
                     <div className="card-action card-footer">
-                        <a class="btn-flat" disabled>
+                        <a className="btn-flat" disabled>
                             Yes: {survey.yes}
                         </a>
-                        <a class="btn-flat" disabled>
+                        <a className="btn-flat" disabled>
                             No: {survey.no}
                         </a>
                         <button
@@ -53,12 +53,12 @@ class Dashboard extends React.Component {
                             Delete Survey
                         </button>
                     </div>
-                    <div className="card-reveal" style={{padding: "0"}}>
-                        <span className="card-title white-text blue-grey darken-3 center">
+                    <div className="card-reveal white-text blue-grey" style={{padding: "0"}}>
+                        <span className="card-title survey-subject white-text blue-grey darken-3 center">
                             {survey.subject}
                             <i className="material-icons right">close</i>
                         </span>
-                        <p className="card-title white-text blue-grey"> {survey.body}</p>
+                        <p className="card-title survey-body"> {survey.body}</p>
                     </div>
                 </div>
 				</div>

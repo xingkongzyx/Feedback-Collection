@@ -69,7 +69,7 @@ class Header extends React.Component {
                 <nav>
                     <div className="nav-wrapper blue lighten-1">
                         <Link to={this.renderLogoLink()} className="brand-logo">
-                            Emaily
+                            FEEDBACK
                         </Link>
                         <ul
                             id="nav-mobile"

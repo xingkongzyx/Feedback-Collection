@@ -1,3 +1,9 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
 body {
 	background-color: #f7fffa;
 	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 200 200'%3E%3Cpolygon fill='%23e1f7fa' fill-opacity='0.59' points='100 0 0 100 100 100 100 200 200 100 200 0'/%3E%3C/svg%3E");
@@ -79,12 +85,57 @@ div.survey-card{
     border-top: 3px solid rgba(0,0,0,.125);
 }
 
+.card-content .survey-title{
+	text-transform: uppercase;
+	text-align: center
+}
+
 .card-reveal{
 	padding: 0;
 }
 
-.card-reveal .card-title{
+.card-reveal .survey-subject{
 	padding: .75rem 1.25rem;
     margin-bottom: 0;
     border-bottom: 2px solid rgba(0,0,0,.125);
+	font-weight: 700;
+}
+
+.card-reveal .survey-body{
+	padding: 1.25rem;
+}
+
+#header{
+	background: #232c2f;
+    width: 100vw;
+    margin: 0;
+    height: 20rem;
+    color: #e6f1fb;
+    padding: 3rem;
+}
+
+#header-title{
+	font-size: 7rem;
+    line-height: 110%;
+	font-weight: 400;
+	color: #cbd0c4e6;
+}
+
+#header-text{
+	font-size: 2rem;
+    line-height: 110%;
+	font-weight: 400;
+}
+
+div.introduction{
+	margin: 0;
+	border: 1px solid black;
+    border-radius: 10%;
+    background: #01579b;
+	width: 30%;
+}
+
+.tech-intro{
+	display: flex;
+	justify-content: space-evenly;
 }
