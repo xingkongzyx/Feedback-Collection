@@ -10,7 +10,8 @@ class Payments extends React.Component {
 				name="EmailApp"
 				description="$5 for 5 credits"
 				amount={500}
-				token={(token) => this.props.handleToken(token)}
+				token={(token) => {console.log("token", token);
+								   this.props.handleToken(token)}}
 				stripeKey={process.env.REACT_APP_STRIPE_KEY}
 			>
 				<a href="/#">

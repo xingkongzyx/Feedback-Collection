@@ -11,6 +11,7 @@ export const fetchUser = () => {
 				withCredentials: true,
 			}
 		);
+		console.log("action creator", response.data)
 		dispatch({
 			type: FETCH_USER,
 			payload: response.data,
