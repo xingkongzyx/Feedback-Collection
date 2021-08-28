@@ -130,12 +130,13 @@ div.survey-card{
 div.introduction{
 	margin: 0;
 	border: 1px solid black;
-    border-radius: 10%;
-    background: #01579b;
-	width: 30%;
+    border-radius: 20%;
+    background: #ccdfee;
+	color: #041819;
+	width: 15%;
 }
 
 .tech-intro{
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: space-between;
 }
