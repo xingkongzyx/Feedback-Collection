@@ -1,4 +1,4 @@
-## EMAILY
+## FEEDBACK COLLECTION
 
 ###### Help you to create surveys for customers
 
